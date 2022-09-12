@@ -43,6 +43,18 @@ DEL /employee/delete
 POST /employee/add
 ```
 
+###**Responses**
+
+Returns the following status codes in its APIs:
+
+| Status Code | Description |
+| :--- | :--- |
+| 200 | `OK` |
+| 400 | `BAD REQUEST` |
+| 500 | `INTERNAL SERVER ERROR` |
+| 401 | `ILLEGAL TOKEN` |
+| 403 | `TOKEN REQUIRED` |
+
 ###**Login**
 
 ```
