@@ -11,11 +11,9 @@ router.post("/add", auth, (req, res) => {
         Employee.create(req.body).then((r) => {
             let query = `SELECT * FROM employees`;
             db.all(query, (err, employees) => {
-                err && res.status(400).json('Please try again later');
+                err && res.status(401).json('Please try again later');
                 employees && res.status(200).json(employees);
             });
-        }).catch((e) => {
-            e && res.status(400).json('Please check all fields');
         });
     } catch {
         res.status(500).json('Something ain\'t working');
@@ -33,7 +31,7 @@ router.get("/get-all", auth, (req, res) => {
         //     res.status(200).json(employees);
         // });
     } catch {
-        res.status(500).json('Internal Server Error');
+        res.status(500).json('Something ain\'t working');
     }
 });
 
@@ -49,7 +47,7 @@ router.get("/get-summary-stats", auth, (req, res) => {
             summaryStats && res.status(200).json(summaryStats);
         });
     } catch {
-        res.status(500).json('Internal Server Error');
+        res.status(500).json('Something ain\'t working');
     }
 });
 
@@ -60,13 +58,14 @@ router.get("/get-summary-stats-dept", auth, (req, res) => {
 
         db.all(departmentSummaryStatsQuery, (err, summaryStats) => {
             if (err) {
+                console.log(err);
                 res.status(401).json('Please try again later');
             }
             summaryStats && res.status(200).json(summaryStats);
         })
 
     } catch {
-        res.status(500).json('Internal Server Error');
+        res.status(500).json('Something ain\'t working');
     }
 });
 
@@ -86,7 +85,7 @@ router.get("/get-summary-stats-dept-sub", auth, (req, res) => {
         })
 
     } catch {
-        res.status(500).json('Internal Server Error');
+        res.status(500).json('Something ain\'t working');
     }
 });
 
@@ -105,7 +104,7 @@ router.delete("/delete", auth, (req, res) => {
             }
         });
     } catch {
-        res.status(500).json('Internal Server Error');
+        res.status(500).json('Something ain\'t working');
     }
 });
 

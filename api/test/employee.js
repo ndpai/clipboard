@@ -79,7 +79,7 @@ describe('Employee APIs', () => {
 
     describe("Test DELETE route", () => {
         it("Should return a list of employees after deletion", (done) => {
-            let obj = {id: 38};
+            let obj = {id: null};
             chai.request(server)
                 .delete("/employee/delete")
                 .send(obj)

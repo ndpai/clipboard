@@ -6,7 +6,7 @@ services:
     working_dir: /api
     volumes:
       - ./api:/api
-    command: npm start
+    command: npm start:prod
     ports:
       - "4000:4000"
     networks:
